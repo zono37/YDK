@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>予約システム</title>
+    <style>
+        /* スタイルはここに追加 */
+    </style>
+</head>
+<body>
+    <h1>予約システム</h1>
+
+    <form id="reservationForm">
+        <label for="name">お名前：</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="date">予約日：</label>
+        <input type="date" id="date" name="date" required><br>
+
+        <label for="time">予約時間：</label>
+        <input type="time" id="time" name="time" required><br>
+
+        <input type="button" value="予約する" onclick="submitReservation()">
+    </form>
+
+    <script>
+        function submitReservation() {
+            var name = document.getElementById("name").value;
+            var date = document.getElementById("date").value;
+            var time = document.getElementById("time").value;
+
+            fetch('http://localhost:3000/submit-reservation', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: name,
+                    date: date,
+                    time: time,
+                }),
+            })
+            .then(response => response.text())
+            .then(data => {
+                console.log(data);
+                if (data === '予約完了') {
+                    // 予約が成功した場合、予約完了画面に遷移する
+                    window.location.href = '/reservation-complete.html';
+                } else {
+                    // 予約が失敗した場合の処理
+                    alert('予約に失敗しました。');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('予約の送信中にエラーが発生しました。');
+            });
+        }
+    </script>
+</body>
+</html>
