@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ディズニーサイト 待機画面</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      text-align: center;
+    }
+    .logo {
+      width: 150px;
+      margin-bottom: 30px;
+    }
+    h1 {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 16px;
+      color: #666;
+      margin-bottom: 40px;
+    }
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 4px solid rgba(0, 0, 0, 0.1);
+      border-top-color: #0057e7;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 50px auto;
+    }
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Disney%2B_logo.svg/800px-Disney%2B_logo.svg.png" alt="ディズニーロゴ" class="logo">
+    <h1>お待ちください...</h1>
+    <p>少々お時間をいただきます。</p>
+    <div class="spinner"></div>
+  </div>
+
+  <script>
+    // 10秒後に予約画面に遷移
+    setTimeout(function() {
+      window.location.href = "https://zono37.github.io/YDK/client.html";
+    }, 10000); // 10000ミリ秒 = 10秒
+  </script>
+</body>
+</html>
