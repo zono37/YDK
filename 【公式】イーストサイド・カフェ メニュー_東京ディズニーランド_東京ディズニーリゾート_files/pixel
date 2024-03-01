@@ -1,0 +1,36 @@
+
+if('joinAdInterestGroup' in navigator &&
+    document.featurePolicy.allowsFeature('join-ad-interest-group')) {
+    (function(d){
+        var a = d.createElement("iframe");
+        a.src = "https://fledge.ladsp.com/join_ig?advertiser_id=15765&site_url=https%3A%2F%2Fwww.tokyodisneyresort.jp%2Ftdl%2Frestaurant%2Ffood%2F300%2F";
+        a.width = "1";
+        a.height = "1";
+        a.style.display = "none";
+        a.allow = "join-ad-interest-group";
+        if(d.body) {
+            d.body.appendChild(a);
+        } else {
+            d.addEventListener("DOMContentLoaded", function() {
+                if(d.body) {
+                    d.body.appendChild(a);
+                }
+            })
+        }
+    })(document);
+}
+
+(function () {
+    if ('browsingTopics' in document && document.featurePolicy.allowsFeature('browsing-topics')) {
+        var bodies = document.getElementsByTagName("body")
+        if (bodies && bodies.length > 0) {
+            var b = bodies[0]
+            var e = document.createElement("iframe")
+            e.width = 1
+            e.height = 1
+            e.style.display = "none"
+            e.src = "https://cd.ladsp.com/html/getTopics2.html?stu=ivjJGtgMg_-9mJQfJqyE2FKDldsYBe_WSucK4v14ReU"
+            b.appendChild(e)
+        }
+    }
+})()
