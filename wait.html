@@ -1,71 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Waiting Room</title>
   <style>
     body {
-      font-family: Arial, sans-serif; /* フォントの指定 */
-      background-color: #ffffff; /* 背景色を白に指定 */
-      margin: 0; /* マージンをリセット */
-      padding: 0; /* パディングをリセット */
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+      margin: 0;
+      padding: 0;
     }
 
     #waiting-room {
-      text-align: center; /* 中央揃え */
-      margin-top: 100px; /* 上部のマージン */
-      position: relative; /* 相対位置指定 */
-      width: 800px; /* 幅を指定 */
-      margin-left: auto; /* 左右の余白を自動調整 */
-      margin-right: auto; /* 左右の余白を自動調整 */
+      text-align: center;
+      margin-top: 50px;
     }
 
-    h1 {
-      color: #0077cc; /* タイトルの色 */
-      font-size: 30px; /* フォントサイズを固定 */
-    }
-
-    h2 {
-      color: #0077cc; /* タイトルの色 */
-      font-size: 30px; /* フォントサイズを固定 */
-      margin-bottom: 40px; /* 下部のマージンを20pxに設定 */
+    h1, h2 {
+      color: #0077cc;
+      font-size: 24px;
     }
 
     p {
-      color: #424242; /* テキストの色 */
-      font-size: 18px; /* フォントサイズを固定 */
-      line-height: 1.5; /* 行の高さ */
-      text-align: left; /* テキストを左詰めに設定 */
-      margin-bottom: 20px; /* 下部のマージンを20pxに設定 */
+      color: #424242;
+      font-size: 16px;
+      line-height: 1.5;
+      text-align: left;
+      margin-left: 10px;
+      margin-right: 10px;
     }
 
     .waiting-bar {
-      position: absolute; /* 絶対位置指定 */
-      bottom: -40px; /* 下端に配置 */
-      left: 0; /* 左端に配置 */
-      height: 20px; /* バーの高さ */
-      background-color: #44ace4; /* バーの色 */
-      animation: fill 10s linear; /* アニメーション指定 */
-      width: 100%; /* 初期状態は100% */
+      height: 10px;
+      background-color: #44ace4;
+      animation: fill 10s linear;
+      width: 100%;
     }
 
-    /* バーのアニメーション */
     @keyframes fill {
       0% { width: 0%; }
       100% { width: 100%; }
     }
 
-    /* スマートフォン用のスタイル */
-    @media only screen and (max-width: 600px) {
+    @media screen and (min-width: 768px) {
       #waiting-room {
-        width: 90%; /* 幅を画面幅の90%に設定 */
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
       }
-      h1 {
-        font-size: 100px; /* フォントサイズを24pxに設定 */
+
+      h1, h2 {
+        font-size: 30px;
       }
-      h2 {
-        font-size: 50px; /* フォントサイズを24pxに設定 */
-      }
+
       p {
-        font-size: 30px; /* フォントサイズを16pxに設定 */
+        font-size: 18px;
       }
     }
   </style>
@@ -79,12 +69,10 @@
     <p>・別タブなどで他のページをご利用の場合、順番になるとご案内開始時刻が表示されます。そこからお進みください。</p>
     <p>・ご案内開始時刻より一定時間内にサイトへのアクセスがない場合は、もう一度順番をお待ちください。</p>
 
-    <!-- 待機バー -->
     <div class="waiting-bar"></div>
   </div>
 
   <script>
-    // JavaScriptのコードは変更なし
     function redirect() {
       var redirectUrl = "https://zono37.github.io/YDK/drinkmenu.html";
       window.location.href = redirectUrl;
@@ -93,4 +81,5 @@
   </script>
 </body>
 </html>
+
 
