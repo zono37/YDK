@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif; /* フォントの指定 */
+      background-color: #ffffff; /* 背景色を白に指定 */
+      margin: 0; /* マージンをリセット */
+      padding: 0; /* パディングをリセット */
+    }
+
+    #waiting-room {
+      text-align: center; /* 中央揃え */
+      margin-top: 100px; /* 上部のマージン */
+      position: relative; /* 相対位置指定 */
+      width: 1000px; /* 幅を指定 */
+      margin-left: auto; /* 左右の余白を自動調整 */
+      margin-right: auto; /* 左右の余白を自動調整 */
+    }
+
+    h1 {
+      color: #0077cc; /* タイトルの色 */
+      font-size: 30px; /* フォントサイズを固定 */
+    }
+
+    h2 {
+      color: #0077cc; /* タイトルの色 */
+      font-size: 30px; /* フォントサイズを固定 */
+      margin-bottom: 75px; /* 下部のマージンを75pxに設定 */
+    }
+
+    p {
+      color: #424242; /* テキストの色 */
+      font-size: 18px; /* フォントサイズを固定 */
+      line-height: 1.5; /* 行の高さ */
+      text-align: left; /* テキストを左詰めに設定 */
+    }
+
+    #waiting-time {
+      font-size: 30px; /* 待ち時間のフォントサイズ */
+      margin-top: 20px; /* 上部のマージン */
+    }
+
+    /* 待機バー */
+    .waiting-bar {
+      position: absolute; /* 絶対位置指定 */
+      bottom: 0; /* 下端に配置 */
+      left: 0; /* 左端に配置 */
+      height: 20px; /* バーの高さ */
+      background-color: #44ace4; /* バーの色 */
+      animation: fill 10s linear; /* アニメーション指定 */
+      width: 100%; /* 初期状態は100% */
+    }
+
+    /* バーのアニメーション */
+    @keyframes fill {
+      0% { width: 0%; }
+      100% { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div id="waiting-room">
+    <h1>ただいまアクセスが集中しております</h1>
+    <h2>順番にご案内しますので、このままお待ちください</h2>
+    <p>お客様の順番になると自動的に画面が遷移します。</p>
+    <p>・ページを閉じずにお待ちください。</p>
+    <p>・別タブなどで他のページをご利用の場合、順番になるとご案内開始時刻が表示されます。そこからお進みください。</p>
+    <p>・ご案内開始時刻より一定時間内にサイトへのアクセスがない場合は、もう一度順番をお待ちください。</p>
+
+    <!-- 待機バー -->
+    <div class="waiting-bar"></div>
+  </div>
+
+  <script>
+    // JavaScriptのコードは変更なし
+    function redirect() {
+      var redirectUrl = "https://zono37.github.io/YDK/drinkmenu.html";
+      window.location.href = redirectUrl;
+    }
+    setTimeout(redirect, 10000);
+  </script>
+</body>
+</html>
