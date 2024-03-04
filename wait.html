@@ -21,12 +21,12 @@
 
     h1, h2 {
       color: #0077cc;
-      font-size: 18px;
+      font-size: 20px;
       font-family: メイリオ, Meiryo, sans-serif;
     }
 
     p1 {
-      margin-top: 30px;
+      margin-top: 10px; /* 待ち時間の目安を下に配置 */
       color: #424242;
       font-size: 15px;
       line-height: 1.2;
@@ -53,6 +53,30 @@
       width: 100%;
     }
 
+    .estimated-time1 {
+      color: #424242;
+      margin-top: 10px; /* 待ち時間の目安を下に配置 */
+      font-family: メイリオ, Meiryo, sans-serif;
+      text-align: center;
+      font-size: 25px;
+    }
+
+
+    .estimated-time {
+      color: #424242;
+      font-family: メイリオ, Meiryo, sans-serif;
+      text-align: center;
+      font-size: 25px;
+    }
+
+    .waiting-time {
+      color: #424242;
+      font-family: メイリオ, Meiryo, sans-serif;
+      text-align: center;
+      font-size: 25px;
+      margin-top: 10px; /* 待ち時間の目安を下に配置 */
+    }
+
     @keyframes fill {
       0% { width: 0%; }
       100% { width: 100%; }
@@ -60,10 +84,10 @@
 
     @media screen and (min-width: 768px) {
       h1 {
-        font-size: 18px;
+        font-size: 20px;
       }
       h2{
-        font-size: 18px;
+        font-size: 20px;
         margin-bottom: 50px;
       }
 
@@ -81,12 +105,16 @@
   <div id="waiting-room">
     <h1>ただいまアクセスが集中しております</h1>
     <h2>順番にご案内しますので、このままお待ちください</h2>
-    <p1>お客様の順番になると自動的に画面が遷移します。</p1>
+    <p>お客様の順番になると自動的に画面が遷移します。</p>
     <p>・ページを閉じずにお待ちください。</p>
     <p>・別タブなどで他のページをご利用の場合、順番になるとご案内開始時刻が表示されます。そこからお進みください。</p>
     <p>・ご案内開始時刻より一定時間内にサイトへのアクセスがない場合は、もう一度順番をお待ちください。</p>
 
     <div class="waiting-bar"></div>
+
+    <p1 class="estimated-time1"><br>サイトにアクセスできる推定時刻: <br><span id="estimatedTime"></span><br></p1>
+    <p1 class="waiting-time"><br>待ち時間の目安: <br>1分未満</p1>
+
   </div>
 
   <script>
@@ -95,6 +123,21 @@
       window.location.href = redirectUrl;
     }
     setTimeout(redirect, 10000);
+
+    function updateEstimatedTime() {
+      var currentTime = new Date();
+      var estimatedTime = new Date(currentTime.getTime() + 10000);
+      var hours = estimatedTime.getHours();
+      var minutes = estimatedTime.getMinutes();
+
+      // 一桁の場合は0を付ける
+      if (minutes < 10) {
+        minutes = "0" + minutes;
+      }
+
+      document.getElementById("estimatedTime").innerText = hours + ":" + minutes;
+    }
+    updateEstimatedTime();
   </script>
 </body>
 </html>
